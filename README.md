@@ -1,7 +1,5 @@
 # 🏠 L'Investissement Immobilier Locatif Intelligent — Dashboard
 
-Dashboard interactif basé sur le livre de **Julien Delagrandanne**.
-
 ## Installation & Lancement
 
 ```bash
