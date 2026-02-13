@@ -113,7 +113,7 @@ st.markdown("""
 
     div[data-testid="stMetric"] {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.08) !important;
         border-radius: 12px;
         padding: 1rem;
     }
