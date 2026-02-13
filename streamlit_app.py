@@ -34,6 +34,52 @@ st.markdown("""
     }
     h1, h2, h3 { font-family: 'DM Serif Display', serif !important; }
 
+    /* ========================================
+       INPUT BOXES - FORCE WHITE BACKGROUND
+       ======================================== */
+    
+    /* Number inputs */
+    input[type="number"], 
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        background-color: white !important;
+        color: #1a1a2e !important;
+        border: 1px solid #cbd5e0 !important;
+        border-radius: 8px !important;
+        padding: 0.5rem !important;
+    }
+    
+    /* Slider inputs */
+    div[data-baseweb="slider"] {
+        background-color: white !important;
+        padding: 1rem !important;
+        border-radius: 8px !important;
+    }
+    
+    /* Select boxes */
+    div[data-baseweb="select"] > div {
+        background-color: white !important;
+        color: #1a1a2e !important;
+        border-radius: 8px !important;
+    }
+    
+    /* Dropdown menus */
+    ul[role="listbox"] {
+        background-color: white !important;
+    }
+    
+    ul[role="listbox"] li {
+        color: #1a1a2e !important;
+    }
+    
+    /* Input labels */
+    label {
+        color: #00000 !important;
+        font-weight: 500 !important;
+    }
+
     /* Metric cards */
     .metric-card {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -70,7 +116,7 @@ st.markdown("""
         border-radius: 0 12px 12px 0;
         padding: 1.2rem 1.5rem;
         margin: 1rem 0;
-        color: #000000;
+        color: #00000;
     }
     .concept-box h4 { color: #48bb78; margin: 0 0 0.5rem 0; }
 
@@ -80,7 +126,7 @@ st.markdown("""
         border-radius: 0 12px 12px 0;
         padding: 1.2rem 1.5rem;
         margin: 1rem 0;
-        color: #000000;
+        color: #00000;
     }
     .strategy-box h4 { color: #b794f4; margin: 0 0 0.5rem 0; }
 
@@ -90,7 +136,7 @@ st.markdown("""
         border-radius: 0 12px 12px 0;
         padding: 1.2rem 1.5rem;
         margin: 1rem 0;
-        color: #000000;
+        color: #00000;
     }
     .warning-box h4 { color: #f6ad55; margin: 0 0 0.5rem 0; }
 
@@ -98,11 +144,18 @@ st.markdown("""
     section[data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
     }
-    section[data-testid="stSidebar"] * { color: #000000 !important; }
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] div {
+        color: #00000 !important;
+    }
 
     .stTabs [data-baseweb="tab-list"] { gap: 0.5rem; }
     .stTabs [data-baseweb="tab"] {
-        background: rgba(255,255,255,0.05);
+        background: rgba(255,255,255,0.05) !important;
         border-radius: 8px;
         padding: 0.5rem 1rem;
     }
@@ -113,9 +166,95 @@ st.markdown("""
 
     div[data-testid="stMetric"] {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.08) !important;
         border-radius: 12px;
         padding: 1rem;
+    }
+
+    /* ========================================
+       MOBILE RESPONSIVENESS
+       ======================================== */
+    
+    /* Tablets and below (< 768px) */
+    @media (max-width: 768px) {
+        .stApp {
+            padding: 0.5rem !important;
+        }
+        
+        /* Make metric cards stack better */
+        .metric-card {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .metric-card .value {
+            font-size: 1.5rem;
+        }
+        
+        /* Reduce font sizes for better fit */
+        h1 {
+            font-size: 1.75rem !important;
+        }
+        
+        h2 {
+            font-size: 1.5rem !important;
+        }
+        
+        h3 {
+            font-size: 1.25rem !important;
+        }
+        
+        /* Info boxes */
+        .concept-box, .strategy-box, .warning-box {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Sidebar adjustments */
+        section[data-testid="stSidebar"] {
+            min-width: 100% !important;
+        }
+        
+        /* Make tabs scrollable on mobile */
+        .stTabs [data-baseweb="tab-list"] {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            min-width: fit-content;
+            white-space: nowrap;
+        }
+    }
+    
+    /* Mobile phones (< 480px) */
+    @media (max-width: 480px) {
+        .metric-card .value {
+            font-size: 1.25rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem !important;
+        }
+        
+        h2 {
+            font-size: 1.25rem !important;
+        }
+        
+        h3 {
+            font-size: 1.1rem !important;
+        }
+        
+        /* Make inputs full width on small screens */
+        input, select, textarea {
+            width: 100% !important;
+        }
+        
+        /* Reduce padding in boxes */
+        .concept-box, .strategy-box, .warning-box {
+            padding: 0.75rem;
+            font-size: 0.85rem;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
